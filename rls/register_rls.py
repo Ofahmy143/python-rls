@@ -6,16 +6,17 @@ from sqlalchemy.ext.declarative import DeclarativeMeta
 from .create_policies import create_policies
 
 
-
 def set_metadata_info(Base: Type[DeclarativeMeta]):
     """RLS policies are first added to the Metadata before applied."""
     Base.metadata.info.setdefault("rls_policies", dict())
     for mapper in Base.registry.mappers:
         if not hasattr(mapper.class_, "__rls_policies__"):
             continue
+
         Base.metadata.info["rls_policies"][
             mapper.tables[0].fullname
         ] = mapper.class_.__rls_policies__
+
 
 
 

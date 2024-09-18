@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 from rls.schemas import Permissive
 from rls.register_rls import register_rls
-Base = declarative_base()
+from rls.database import Base
 
 # Register RLS policies
 register_rls(Base)
@@ -26,5 +26,10 @@ class Item(Base):
     owner = relationship("User")
 
     __rls_policies__ = [
-            Permissive(expr=f"owner_id = current_setting('app.current_user_id')::integer", cmd=["SELECT","INSERT", "UPDATE", "DELETE"])
-]
+            Permissive(condition_args={
+                "comparator_name": "user_id",
+                "operation": "EQUALITY",
+                "type": "INTEGER",
+                "column_name": "owner_id"
+            }, cmd=["SELECT","INSERT", "UPDATE", "DELETE"])
+    ]
