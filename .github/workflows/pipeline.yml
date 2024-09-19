@@ -1,0 +1,8 @@
+on:
+    pull_request:
+        branches: [main]
+
+jobs:
+    quality-test:
+        name: Test/Quality
+        uses: DelfinaCare/fastapi-rls/.github/workflows/quality.yml@dev
