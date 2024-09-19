@@ -1,15 +1,20 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
-from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
-from sqlalchemy.orm import sessionmaker
-from rls.schemas import Policy
+from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
+from sqlalchemy import text, create_engine
+from sqlalchemy.sql.elements import TextClause
+
+from typing import Optional
+
 from fastapi import Request
 from fastapi.datastructures import Headers
-from sqlalchemy import text, create_engine
 
-#--------------------------------------Set RLS variables-----------------------------#
+from rls.schemas import Policy
 
-def _get_set_statements(headers: Headers) -> str:    
+# --------------------------------------Set RLS variables-----------------------------#
+
+
+def _get_set_statements(headers: Headers) -> Optional[TextClause]:
     # must be setup for the rls_policies key to be set
     queries = []
 
@@ -25,30 +30,28 @@ def _get_set_statements(headers: Headers) -> str:
             comparator_name = policy.condition_args["comparator_name"]
             comparator_value = headers.get(comparator_name)
 
-            if(comparator_value is None):
+            if comparator_value is None:
                 continue
 
             temp_query = f"SET LOCAL {db_var_name} = {comparator_value};"
 
             queries.append(temp_query)
 
-        
-    if(len(queries) == 0):
-        return ""
-    combined_query = text('\n'.join(queries))  # Combine queries into a single string
+    if len(queries) == 0:
+        return None
+    combined_query = text("\n".join(queries))  # Combine queries into a single string
 
     return combined_query
 
 
-
-#--------------------------------------Base Initialization-----------------------------#
+# --------------------------------------Base Initialization-----------------------------#
 
 
 # Base class for our models
 Base = declarative_base()
 
 
-#--------------------------------------Engines Initialization-----------------------------#
+# --------------------------------------Engines Initialization-----------------------------#
 
 
 ASYNC_DATABASE_URL = "postgresql+asyncpg://my_user:secure_password@localhost/session"
@@ -61,9 +64,9 @@ SYNC_DATABASE_URL = "postgresql://my_user:secure_password@localhost/session"
 async_engine = create_async_engine(ASYNC_DATABASE_URL)
 
 # SQLAlchemy session
-AsyncSessionLocal = sessionmaker(
+AsyncSessionLocal = async_sessionmaker(
     bind=async_engine,
-    class_=AsyncSession,  # Specify that the session should be async
+    class_=AsyncSession,  # Async session class
     expire_on_commit=False,
 )
 
@@ -72,28 +75,26 @@ sync_engine = create_engine(SYNC_DATABASE_URL)
 
 SyncSessionLocal = sessionmaker(
     bind=sync_engine,
-    class_= Session,
+    class_=Session,
     expire_on_commit=False,
 )
 
 
-
-#--------------------------------------Deps injection functions-----------------------------#
+# --------------------------------------Deps injection functions-----------------------------#
 
 
 def get_sync_session(request: Request):
     with SyncSessionLocal() as session:
         stmts = _get_set_statements(request.headers)
-        if(stmts != ""):
-             session.execute(stmts)
+        if stmts is not None:
+            session.execute(stmts)
         yield session
-        
-     
+
 
 # Dependency to get DB session in routes
 async def get_async_session(request: Request):
     async with AsyncSessionLocal() as session:
         stmts = _get_set_statements(request.headers)
-        if(stmts != ""):
+        if stmts is not None:
             await session.execute(stmts)
         yield session
