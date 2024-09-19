@@ -5,4 +5,4 @@ on:
 jobs:
     quality-test:
         name: Test/Quality
-        uses: DelfinaCare/fastapi-rls/.github/workflows/quality.yml@dev
+        uses: DelfinaCare/rls/.github/workflows/quality.yml@main
