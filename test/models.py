@@ -1,13 +1,16 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
+from typing import Any
 from rls.schemas import (
     Permissive,
     Command,
 )
 
 
-# Base = register_rls(declarative_base())
+# To avoid deletion by pre-commit hooks
+_Any = Any
+
 Base = declarative_base()  # type: Any
 
 
