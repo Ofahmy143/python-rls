@@ -1,18 +1,6 @@
 # CHANGELOG
 
-## v0.3.0 (2024-09-29)
-
-### Feature
-
-* feat: add publish to pypi step in workflow ([`2f6d69d`](https://github.com/DelfinaCare/rls/commit/2f6d69d51d72fb546e6152d233e15410a109fce4))
-
-## v0.2.0 (2024-09-29)
-
-### Feature
-
-* feat: add pypi publish config ([`f45bf07`](https://github.com/DelfinaCare/rls/commit/f45bf075d1ee9fdbc7ef9da845d238da1994c524))
-
-## v0.1.0 (2024-09-29)
+## v0.1.0 (2024-10-01)
 
 ### Documentation
 
@@ -30,9 +18,23 @@ Co-authored-by: Ghaith Kdimati &lt;gaoia123@gmail.com&gt; ([`e8240b6`](https://g
 
 ### Feature
 
+* feat: update release workflow to run on main branch ([`fb468de`](https://github.com/DelfinaCare/rls/commit/fb468de8f10ab73766d2a9835baf839f8c835234))
+
+* feat: update bypass rls execution and move alembic files to test
+
+Co-authored-by: Ghaith Kdimati &lt;gaoia123@gmail.com&gt;&#34; ([`7f3b711`](https://github.com/DelfinaCare/rls/commit/7f3b711b62cb4120f90fcbda774ae4fd3a8cb57b))
+
+* feat: add the release workflow to pipeline
+
+Co-authored-by: Ghaith Kdimati &lt;gaoia123@gmail.com&gt;&#34; ([`f7e02b2`](https://github.com/DelfinaCare/rls/commit/f7e02b25f1e61079903452ffeddfb41864265fdd))
+
+* feat: add publish to pypi step in workflow ([`c621183`](https://github.com/DelfinaCare/rls/commit/c621183371138cc03ce72ca1f7ad03e1d81c041f))
+
+* feat: add pypi publish config ([`a2ecd55`](https://github.com/DelfinaCare/rls/commit/a2ecd555a732155331c40e5af157ef989eb47ccd))
+
 * feat: add release workflow
 
-Co-authored-by: Ghaith Kdimati &lt;gaoia123@gmail.com&gt;&#34; ([`9b51664`](https://github.com/DelfinaCare/rls/commit/9b516643de6b0d90ef8ae53a99b6213b4d4ce693))
+Co-authored-by: Ghaith Kdimati &lt;gaoia123@gmail.com&gt;&#34; ([`16a9d29`](https://github.com/DelfinaCare/rls/commit/16a9d29a4fb92d1f8e84279241d0dd15b5d7ec44))
 
 * feat: update structure
 - add Session class and context getter abstract class
@@ -83,6 +85,12 @@ Co-authored-by: Ghaith Kdimati &lt;gaoia123@gmail.com&gt; ([`6587edc`](https://g
 Co-authored-by: Ghaith Kdimati &lt;gaoia123@gmail.com&gt; ([`ffd3ef6`](https://github.com/DelfinaCare/rls/commit/ffd3ef669cc6997c2848cdc9206be2bc5feb116c))
 
 ### Fix
+
+* fix: mypy static analysis error ([`b7b3df3`](https://github.com/DelfinaCare/rls/commit/b7b3df3a200b2bd959b2c894b4eb288879ce1633))
+
+* fix: mypy static analysis issues
+
+Co-authored-by: Ghaith Kdimati &lt;gaoia123@gmail.com&gt;&#34; ([`6ba0802`](https://github.com/DelfinaCare/rls/commit/6ba08026ed5b3218cc888d0af0ed36e5606fcc97))
 
 * fix: remove userId from test route in main.py ([`5b91827`](https://github.com/DelfinaCare/rls/commit/5b918276bc0acb329cb3bb3775476b84639373c8))
 
