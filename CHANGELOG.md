@@ -1,5 +1,88 @@
 # CHANGELOG
 
+## v0.2.0 (2024-10-06)
+
+### Build
+
+* build(deps): bump actions/setup-python from 4 to 5
+
+Bumps [actions/setup-python](https://github.com/actions/setup-python) from 4 to 5.
+- [Release notes](https://github.com/actions/setup-python/releases)
+- [Commits](https://github.com/actions/setup-python/compare/v4...v5)
+
+---
+updated-dependencies:
+- dependency-name: actions/setup-python
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`fbffce6`](https://github.com/DelfinaCare/rls/commit/fbffce6cd3ec0c84fac15a8e5462b1e13c003be4))
+
+* build(deps): bump actions/checkout from 3 to 4
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 3 to 4.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/v3...v4)
+
+---
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`4a523a6`](https://github.com/DelfinaCare/rls/commit/4a523a67714be8dbb7daf9a25c6f5fa7dc004449))
+
+* build(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.8.8 to 9.9.0.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.8...v9.9.0)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`add1c17`](https://github.com/DelfinaCare/rls/commit/add1c176bb60987d9d0b85492b1fe21db0e0f606))
+
+### Feature
+
+* feat: added pytyped
+
+Co-authored-by: Omar Fahmy &lt;ofahmy1234@gmail.com&gt; ([`b62b28d`](https://github.com/DelfinaCare/rls/commit/b62b28dd02ce6650213a8d3d5eabcc857087b25d))
+
+* feat: add depandabot
+
+Co-authored-by: Omar Fahmy &lt;ofahmy1234@gmail.com&gt; ([`78df511`](https://github.com/DelfinaCare/rls/commit/78df511d63e596aa3a57f20bc8a8815b215cefa3))
+
+### Fix
+
+* fix: updated poetry lock ([`534a469`](https://github.com/DelfinaCare/rls/commit/534a4693e395b71e323d1dbeb38436800daa6216))
+
+* fix: update poetry lock ([`54229cb`](https://github.com/DelfinaCare/rls/commit/54229cbfeba472aa83d1a4eabad5a0230f86b359))
+
+### Refactor
+
+* refactor: removed try catch blocks
+
+Co-authored-by: Omar Fahmy &lt;ofahmy1234@gmail.com&gt; ([`897ed6e`](https://github.com/DelfinaCare/rls/commit/897ed6e3123c965842870c3009fa751cda620132))
+
+* refactor: removed unnecessary code
+
+Co-authored-by: Omar Fahmy &lt;ofahmy1234@gmail.com&gt; ([`d4a3306`](https://github.com/DelfinaCare/rls/commit/d4a33069fbe947aa4d0f1e3bc025549598b06aaf))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/DelfinaCare/rls ([`29a4e1d`](https://github.com/DelfinaCare/rls/commit/29a4e1d25e3d1b505171561d9be0d8b0292cb269))
+
+* ref: handled deps versioning ([`015fbae`](https://github.com/DelfinaCare/rls/commit/015fbaeee2150c99a8cbdd218cd6d64a702229c6))
+
 ## v0.1.0 (2024-10-01)
 
 ### Documentation
