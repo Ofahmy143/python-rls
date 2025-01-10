@@ -32,7 +32,7 @@ class Policy(BaseModel):
     custom_policy_name: Optional[str] = None
 
     __policy_names: List[str] = []
-    __compiled_custom_expr: ClauseElement = None
+    __compiled_custom_expr: Optional[ClauseElement] = None
     __expr: str = ""
     __policy_suffix: str = ""
     __condition_args_prefix: str = "rls"
