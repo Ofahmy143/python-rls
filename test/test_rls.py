@@ -41,9 +41,6 @@ class TestRLSPolicies(unittest.TestCase):
                 .fetchall()
             )
 
-            print("Policies:")
-            print(policies)
-
             self.assertEqual(
                 len(policies),
                 6,
