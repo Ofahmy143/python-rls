@@ -51,7 +51,7 @@ class TestRLSPolicies(unittest.TestCase):
                     "policyname": "items_smaller_than_or_equal_accountid_policy_all_policy_2",
                     "permissive": "PERMISSIVE",
                     "cmd": "ALL",
-                    "qual": "((owner_id = (current_setting('rls.account_id'::text, true))::integer) OR ((NULLIF(current_setting('rls.bypass_rls'::text, true), ''::text))::boolean = true))",
+                    "qual": "((owner_id <= (current_setting('rls.account_id'::text, true))::integer) OR ((NULLIF(current_setting('rls.bypass_rls'::text, true), ''::text))::boolean = true))",
                 },
                 {
                     "policyname": "items_greater_than_accountid_policy_select_policy_1",
