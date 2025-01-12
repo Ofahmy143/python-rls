@@ -82,13 +82,10 @@ class Policy(BaseModel):
         """Convert the lambda function to a SQLAlchemy expression."""
         args = []
         for arg in self.condition_args:
-            coalesced_value = func.coalesce(
-                func.current_setting(
-                    f"{self.__condition_args_prefix}.{arg.comparator_name}"
-                ),
-                "",
+            wrapped_value = func.current_setting(
+                f"{self.__condition_args_prefix}.{arg.comparator_name}", True
             ).cast(arg.type)
-            args.append(coalesced_value)
+            args.append(wrapped_value)
         self.__compiled_custom_expr = self.custom_expr(*args)
         self.__expr = str(
             self.__compiled_custom_expr.compile(compile_kwargs={"literal_binds": True})
