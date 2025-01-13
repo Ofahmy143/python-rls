@@ -28,22 +28,23 @@ jobs:
         run: pip install -e ".[dev]"
       - name: Run Mypy
         run: mypy rls/
-
   unit-tests:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-            cache: pip
-            python-version: 3.12
+          python-version: ${{ matrix.python-version }}
+          cache: pip
       - name: Install dependencies
         run: pip install -e ".[dev]"
       - name: Run unit tests
         env:
-            PYTHONPATH: "${{ github.workspace }}/test"
+          PYTHONPATH: "${{ github.workspace }}/test"
         run: |
           python3 -m unittest test/test_alembic.py && python3 -m unittest test/test_rls.py
