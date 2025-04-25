@@ -5,13 +5,13 @@ from sqlalchemy.orm import sessionmaker
 
 from rls.rls_session import RlsSession
 from rls.rls_sessioner import ContextGetter, RlsSessioner
-from test import database, models
+from test import database_pgtester, models
 
 
 class TestRLSPolicies(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.instance = database.test_postgres_instance()
+        cls.instance = database_pgtester.test_postgres_instance()
         cls.admin_engine = cls.instance.admin_engine
         cls.non_superadmin_engine = cls.instance.non_superadmin_engine
         cls.session_maker = sessionmaker(

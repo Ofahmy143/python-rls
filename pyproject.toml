@@ -18,9 +18,7 @@ source_archive = "https://github.com/DelfinaCare/rls/archive/{commit_hash}.zip"
 [project]
 name = "rls"
 dynamic = ["version"]
-authors = [
-  { name = "DelfinaCare", email = "open-source@delfina.com" }
-]
+authors = [{ name = "DelfinaCare", email = "open-source@delfina.com" }]
 description = "python sqlalchemy rls integration package for psql"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -40,9 +38,9 @@ dependencies = [
 dev = [
   "mypy >=1.11.2",
   "testing-postgresql >= 1.3.0",
-  "psycopg2 >= 2.9",
+  "psycopg >= 3.1.0",            # Use psycopg3 (modern async/sync support)
   "uvicorn >= 0.34.0",
-  "httpx >= 0.25.1"
+  "httpx >= 0.25.1",
 ]
 
 [project.urls]
